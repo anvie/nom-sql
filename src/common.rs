@@ -905,7 +905,7 @@ pub fn integer_literal(i: &[u8]) -> IResult<&[u8], Literal> {
 }
 
 fn unpack(v: &[u8]) -> i32 {
-    i32::from_str(str::from_utf8(v).unwrap()).unwrap()
+    i32::from_str(str::from_utf8(v).unwrap_or("0")).unwrap_or(0)
 }
 
 // Floating point literal value
